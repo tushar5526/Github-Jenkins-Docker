@@ -232,5 +232,5 @@ for file in os.listdir('/root/.jenkins/workspace/Job1'):
 
 
 # Future Scope : 
-- Support for more files like node.js
+- Support for backends like node.js
 - Integration of Jenkins
