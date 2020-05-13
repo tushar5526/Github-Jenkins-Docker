@@ -47,6 +47,45 @@ docker build -t jenkins .
 
 ### This is done now, let's move to next step
 
+- First launch a jenkins container
+
+```
+docker run -it -p 8081:8080 -v /var/run/docker.sock:/var/run/docker.sock --name jenkins jenkins
+```
 
 
+* This launches a jenkins conatainer that has docker installed already, but docker in docker is pretty difficult to manage and handle as well, using --privileged will expose our BASE OS to vulnerabilities as it gives the docker conatiner total access to BASE OS * 
+
+*** THE TRICK ***
+
+*docker runs on docker-daemon which runs in /var/run/docker.sock , so in the line* 
+` -v /var/run/docker.sock:/var/run/docker.sock ` *we making the docker installed in jenkins container  to use daemon of BASE OS, we can still use all the docker commands like launching image and docker ps from the docker in jenkins container*
+
+**You would get something like this***
+
+***Image here***
+
+
+- [ ]	Create a job chain of job1, job2, job3 and  job4 using build pipeline plugin in Jenkins 
+
+- If have RHEL on some virtual box, then you can login to jenkins by going to 
+
+```
+(base OS IP Address):8081
+eg : 192.168.43.64:8081
+```
+
+- If RHEL is your main operating system, then do the following
+
+```
+docker inspect jenkins
+```
+
+- See the IP Address of the docker container
+
+```
+(IP Address of Container):8080
+
+eg : 172.17.0.2:8080
+```
 
