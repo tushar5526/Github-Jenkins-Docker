@@ -144,7 +144,7 @@ Take a look at python file : launch.py
 import os
 
 for file in os.listdir('/root/.jenkins/workspace/Job1'):
-  ext = os.path.splitext(file0[-1].lower()
+  ext = os.path.splitext(file[-1].lower()
 
   
   if ext == '.php':
