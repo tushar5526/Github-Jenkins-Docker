@@ -45,9 +45,6 @@ docker build -t jenkins .
 
 ***IMAGE here***
 
-
-- [x] ***Create container image that has Jenkins installed  using dockerfile, when we launch this image, it should automatically starts Jenkins service in the container.****
-
 ### This is done now, let's move to next step
 
 - First launch a jenkins container
@@ -107,7 +104,7 @@ eg : 172.17.0.2:8080
    - Build Pipeline
    - Select ***Restart Jenkins when done***
  
- - [x]	***Create a job chain of job1, job2, job3 and  job4 using build pipeline plugin in Jenkins*** 
+
  
 # JOB 1 :
 
@@ -123,9 +120,6 @@ eg : 172.17.0.2:8080
   - In  ***Post-Build-Actions*** select ***Build-Other-Projects*** and type ***Job2***, select ***save*** and ***apply***
   
   ***image here***
-  
-- [x]	 ***Job1*** : Pull  the Github repo automatically when some developers push repo to Github.
-
 
 # JOB 2:
 
@@ -173,8 +167,6 @@ for file in os.listdir('/root/.jenkins/workspace/Job1'):
 - In  ***Post-Build-Actions*** select ***Build-Other-Projects*** and type ***Job34***, select ***save*** and ***apply***
   
   ***Image***
-  
-- [x]	 ***Job2*** : By looking at the code or program file, Jenkins should automatically start the respective language interpreter install image container to deploy code ( eg. If code is of  PHP, then Jenkins should start the container that has PHP already installed ).
 
 # JOB 3 and JOB 4 :
 
@@ -198,6 +190,31 @@ for file in os.listdir('/root/.jenkins/workspace/Job1'):
   
   ***Image***
   
-  # JOB 5 : 
+# JOB 5 : 
   
-  - For this we will check ***test*** container is working or not
+  - For this we will check ***test*** container is working or not every minute and launch a new one if it is not working
+  
+  ***Add images here***
+  ***Add images here***
+  
+  
+# PHEW ! Now you can AUTOMATE your development process easily
+
+- [ ]	Create container image that has Jenkins installed  using dockerfile, when we launch this image, it should automatically starts Jenkins service in the container.
+
+- [ ]	Create a job chain of job1, job2, job3 and  job4 using build pipeline plugin in Jenkins 
+
+- [ ]	 ***Job1*** : Pull  the Github repo automatically when some developers push repo to Github.
+
+- [ ]	 ***Job2*** : By looking at the code or program file, Jenkins should automatically start the respective language interpreter install image container to deploy code ( eg. If code is of  PHP, then Jenkins should start the container that has PHP already installed ).
+
+- [ ]	***Job3*** : Test your app if it  is working or not.
+
+- [ ]	***Job4*** : if app is not working , then send email to developer with error messages.
+
+- [ ]	***Job5*** Create One extra job for monitoring : If container where app is running. fails due to any reson then this job should automatically start the container again.
+
+
+# Future Scope : 
+- Support for more files like node.js
+- Integration of Jenkins
