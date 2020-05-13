@@ -10,4 +10,7 @@ RUN wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins.io/redhat/jenkins.r
 RUN rpm --import http://pkg.jenkins.io/redhat/jenkins.io.key
 RUN yum install jenkins
 
+COPY mail.py /
+COPY launch.py /
+
 CMD java -jar /usr/lib/jenkins/jenkins.war
