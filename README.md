@@ -1,5 +1,8 @@
 # Github-Jenkins-Docker
 
+![Image description](https://github.com/tushar5526/Github-Jenkins-Docker/blob/master/images/9.PNG)
+
+
 - [ ]	Create container image that has Jenkins installed  using dockerfile, when we launch this image, it should automatically starts Jenkins service in the container.
 
 - [ ]	Create a job chain of job1, job2, job3 and  job4 using build pipeline plugin in Jenkins 
