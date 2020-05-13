@@ -56,12 +56,14 @@ docker run -it -p 8081:8080 -v /var/run/docker.sock:/var/run/docker.sock --name 
 
 * This launches a jenkins conatainer that has docker installed already, but docker in docker is pretty difficult to manage and handle as well, using --privileged will expose our BASE OS to vulnerabilities as it gives the docker conatiner total access to BASE OS * 
 
-*** THE TRICK ***
+***THE TRICK***
 
 *docker runs on docker-daemon which runs in /var/run/docker.sock , so in the line* 
 ` -v /var/run/docker.sock:/var/run/docker.sock ` *we making the docker installed in jenkins container  to use daemon of BASE OS, we can still use all the docker commands like launching image and docker ps from the docker in jenkins container*
 
-**You would get something like this***
+**You would get something like this, copy the admin password***
+
+
 
 ***Image here***
 
@@ -88,4 +90,39 @@ docker inspect jenkins
 
 eg : 172.17.0.2:8080
 ```
+
+- Now Enter the **password** you copied earlier and it will login you inside the jenkins
+
+- You change the password of jenkins by clicking on **admin** in the left panel 
+
+- Close windows to install plugins, we will do it later
+
+- Go to ***Manage Jenkins** 
+  - Scroll down and select ***Manage Plugins***
+  - Go to ***Available*** tabs and install :
+   - GitHub
+   - Build Pipeline
+   - Select ***Restart Jenkins when done***
+ 
+ - [x]	***Create a job chain of job1, job2, job3 and  job4 using build pipeline plugin in Jenkins*** 
+ 
+# JOB 1 :
+
+- [ ]	 ***Job1*** : Pull  the Github repo automatically when some developers push repo to Github.
+  
+  - Name this job : ***Job1***
+  - You can refer to my Blog www.github.com/tushar5526/jenkinsTest to read about it in detail
+  
+  **Image here ***
+  
+  *You can ***GitHub WebHooks*** as described in my blog, but for simplicity I am using ***Poll SCM**, (POLL SCM will introduce some overhead)
+  
+  - In  ***Post-Build-Actions*** select ***Build-Other-Projects*** and type ***Job2***, select ***save*** and ***apply***
+  
+  ***image here***
+  
+- [x]	 ***Job1*** : Pull  the Github repo automatically when some developers push repo to Github.
+
+
+- [ ]	 ***Job2*** : By looking at the code or program file, Jenkins should automatically start the respective language interpreter install image container to deploy code ( eg. If code is of  PHP, then Jenkins should start the container that has PHP already installed ).
 
