@@ -94,6 +94,9 @@ eg : 172.17.0.2:8080
 
 - Now Enter the **password** you copied earlier and it will login you inside the jenkins
 
+![Image description](https://github.com/tushar5526/Github-Jenkins-Docker/blob/master/images/8.PNG)
+
+
 - You change the password of jenkins by clicking on **admin** in the left panel 
 
 - Close windows to install plugins, we will do it later
@@ -170,6 +173,8 @@ for file in os.listdir('/root/.jenkins/workspace/Job1'):
 - In  ***Post-Build-Actions*** select ***Build-Other-Projects*** and type ***Job34***, select ***save*** and ***apply***
   
 ![Image description](https://github.com/tushar5526/Github-Jenkins-Docker/blob/master/images/5.PNG)
+
+
 ![Image description](https://github.com/tushar5526/Github-Jenkins-Docker/blob/master/images/5-2.PNG)
 
 
@@ -208,19 +213,19 @@ for file in os.listdir('/root/.jenkins/workspace/Job1'):
   
 # PHEW ! Now you can AUTOMATE your development process easily
 
-- [ ]	Create container image that has Jenkins installed  using dockerfile, when we launch this image, it should automatically starts Jenkins service in the container.
+- [x]	Create container image that has Jenkins installed  using dockerfile, when we launch this image, it should automatically starts Jenkins service in the container.
 
-- [ ]	Create a job chain of job1, job2, job3 and  job4 using build pipeline plugin in Jenkins 
+- [x]	Create a job chain of job1, job2, job3 and  job4 using build pipeline plugin in Jenkins 
 
-- [ ]	 ***Job1*** : Pull  the Github repo automatically when some developers push repo to Github.
+- [x]	 ***Job1*** : Pull  the Github repo automatically when some developers push repo to Github.
 
-- [ ]	 ***Job2*** : By looking at the code or program file, Jenkins should automatically start the respective language interpreter install image container to deploy code ( eg. If code is of  PHP, then Jenkins should start the container that has PHP already installed ).
+- [x]	 ***Job2*** : By looking at the code or program file, Jenkins should automatically start the respective language interpreter install image container to deploy code ( eg. If code is of  PHP, then Jenkins should start the container that has PHP already installed ).
 
-- [ ]	***Job3*** : Test your app if it  is working or not.
+- [x]	***Job3*** : Test your app if it  is working or not.
 
-- [ ]	***Job4*** : if app is not working , then send email to developer with error messages.
+- [x]	***Job4*** : if app is not working , then send email to developer with error messages.
 
-- [ ]	***Job5*** Create One extra job for monitoring : If container where app is running. fails due to any reson then this job should automatically start the container again.
+- [x]	***Job5*** Create One extra job for monitoring : If container where app is running. fails due to any reson then this job should automatically start the container again.
 
 
 # Future Scope : 
