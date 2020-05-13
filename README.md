@@ -43,7 +43,7 @@ cd Github-Jenkins-Docker
 docker build -t jenkins .
 ```
 
-***IMAGE here***
+![Image description](https://github.com/tushar5526/Github-Jenkins-Docker/blob/master/images/1.PNG)
 
 ### This is done now, let's move to next step
 
@@ -65,7 +65,8 @@ docker run -it -p 8081:8080 -v /var/run/docker.sock:/var/run/docker.sock --name 
 
 
 
-***Image here***
+![Image description](https://github.com/tushar5526/Github-Jenkins-Docker/blob/master/images/2.PNG)
+
 
 
 - [ ]	Create a job chain of job1, job2, job3 and  job4 using build pipeline plugin in Jenkins 
@@ -113,13 +114,15 @@ eg : 172.17.0.2:8080
   - Name this job : ***Job1***
   - You can refer to my Blog www.github.com/tushar5526/jenkinsTest to read about it in detail
   
-  **Image here***
+![Image description](https://github.com/tushar5526/Github-Jenkins-Docker/blob/master/images/3.PNG)
+
   
   *You can ***GitHub WebHooks*** as described in my blog, but for simplicity I am using ***Poll SCM**, (POLL SCM will introduce some overhead)*
   
   - In  ***Post-Build-Actions*** select ***Build-Other-Projects*** and type ***Job2***, select ***save*** and ***apply***
   
-  ***image here***
+![Image description](https://github.com/tushar5526/Github-Jenkins-Docker/blob/master/images/4.PNG)
+
 
 # JOB 2:
 
@@ -166,7 +169,9 @@ for file in os.listdir('/root/.jenkins/workspace/Job1'):
 
 - In  ***Post-Build-Actions*** select ***Build-Other-Projects*** and type ***Job34***, select ***save*** and ***apply***
   
-  ***Image***
+![Image description](https://github.com/tushar5526/Github-Jenkins-Docker/blob/master/images/5.PNG)
+![Image description](https://github.com/tushar5526/Github-Jenkins-Docker/blob/master/images/5-2.PNG)
+
 
 # JOB 3 and JOB 4 :
 
@@ -188,14 +193,17 @@ for file in os.listdir('/root/.jenkins/workspace/Job1'):
   fi
   ```
   
-  ***Image***
+![Image description](https://github.com/tushar5526/Github-Jenkins-Docker/blob/master/images/6.PNG)
++
   
 # JOB 5 : 
   
   - For this we will check ***test*** container is working or not every minute and launch a new one if it is not working
   
-  ***Add images here***
-  ***Add images here***
+![Image description](https://github.com/tushar5526/Github-Jenkins-Docker/blob/master/images/7.PNG)
+
+![Image description](https://github.com/tushar5526/Github-Jenkins-Docker/blob/master/images/7-2.PNG)
+
   
   
 # PHEW ! Now you can AUTOMATE your development process easily
