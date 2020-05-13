@@ -12,14 +12,17 @@
 
 - [ ]	***Job4*** : if app is not working , then send email to developer with error messages.
 
-- [ ]	Create One extra job j***Job5*** for monitor : If container where app is running. fails due to any reson then this job should automatically start the container again.
+- [ ]	***Job5*** Create One extra job for monitoring : If container where app is running. fails due to any reson then this job should automatically start the container again.
 
 ## Pre-Requisites 
 
 - RHEL 8 as Base OS (or you can try on other linux bases OS)
 - Docker is installed (if not use the docker.repo in this repository to download it )
 - Basics of Linux, Docker, Jenkins
-
+- Docker Images : 
+  - **php** named image, which has httpd and php installed
+  - **py** named image, which has httpd and python installed
+  - **httpd** named image, which has httpd installed
 
 # Let's Start !
 
@@ -128,7 +131,7 @@ eg : 172.17.0.2:8080
 
 - [ ]	 ***Job2*** : By looking at the code or program file, Jenkins should automatically start the respective language interpreter install image container to deploy code ( eg. If code is of  PHP, then Jenkins should start the container that has PHP already installed ).
 
-### How this will work ?
+### How will this work ?
 
 - I have made a python file which goes into the current workspace and checks the extension of downloaded files and then run respective container ( this file is already placed in jenkins container )
 
@@ -143,19 +146,58 @@ for file in os.listdir('/root/.jenkins/workspace/Job1'):
   
   if ext == '.php':
     print('running httpd with php container')
-    os.system('docker run -it -v /root/.jenkins/workspace/job1/:/var/www/html -p 8081:8080 php')
+    os.system('docker run -it -v /root/.jenkins/workspace/job1/:/var/www/html -p 8082:8080 --name test php')
     break
     
   if ext == '.py':
     print('running httpd with python3 container')
-    os.system('docker run -it -v /root/.jenkins/workspace/job1/:/var/www/html -p 8081:8080 python')
+    os.system('docker run -it -v /root/.jenkins/workspace/job1/:/var/www/html -p 8082:8080 --name test python')
     break
     
   if ext == '.html':
     print('running httpd container')
-    os.system('docker run -it -v /root/.jenkins/workspace/job1/:/var/www/html -p 8081:8080 httpd')
+    os.system('docker run -it -v /root/.jenkins/workspace/job1/:/var/www/html -p 8082:8080 --name test httpd')
     break
 ```
 
+- Create a job named ***Job2*** 
+- Go to ***Build***
+  - Select ***Execute Shell**
+  - Type the following command
+  ```
+  cd /
+  python3 launch.py
+  ```
+***This will launch the container at 8082 port***
 
+- In  ***Post-Build-Actions*** select ***Build-Other-Projects*** and type ***Job34***, select ***save*** and ***apply***
+  
+  ***Image***
+  
+- [x]	 ***Job2*** : By looking at the code or program file, Jenkins should automatically start the respective language interpreter install image container to deploy code ( eg. If code is of  PHP, then Jenkins should start the container that has PHP already installed ).
 
+# JOB 3 and JOB 4 :
+
+*I will combine both these jobs as it was easy that way*
+
+- [ ]	***Job3*** : Test your app if it  is working or not.
+
+- [ ]	***Job4*** : if app is not working , then send email to developer with error messages.
+
+- Make a new job named ***JOB34*** 
+- Go to ***Build***
+  - Select ***Execute Shell**
+  - Type the following command
+  
+  ```
+  status=$(curl -o /dev/null -sw "%{http_code}" 192.168.43.64:8082)
+  if [[ status==200 ]]; then echo "good";
+  else python3 /mail.py;
+  fi
+  ```
+  
+  ***Image***
+  
+  # JOB 5 : 
+  
+  - For this we will check ***test*** container is working or not
