@@ -1,6 +1,6 @@
 # Github-Jenkins-Docker
 
-![Image description](https://github.com/tushar5526/Github-Jenkins-Docker/blob/master/images/9.PNG)
+![Image description](https://github.com/tushar5526/Github-Jenkins-Docker/blob/master/images/9.png)
 
 
 - [ ]	Create container image that has Jenkins installed  using dockerfile, when we launch this image, it should automatically starts Jenkins service in the container.
