@@ -12,5 +12,8 @@ RUN yum install jenkins
 
 COPY mail.py /
 COPY launch.py /
+COPY docker.repo /etc/yum.repos.d/
+
+RUN yum install docker-ce -y
 
 CMD java -jar /usr/lib/jenkins/jenkins.war
