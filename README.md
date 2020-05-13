@@ -113,9 +113,9 @@ eg : 172.17.0.2:8080
   - Name this job : ***Job1***
   - You can refer to my Blog www.github.com/tushar5526/jenkinsTest to read about it in detail
   
-  **Image here ***
+  **Image here***
   
-  *You can ***GitHub WebHooks*** as described in my blog, but for simplicity I am using ***Poll SCM**, (POLL SCM will introduce some overhead)
+  *You can ***GitHub WebHooks*** as described in my blog, but for simplicity I am using ***Poll SCM**, (POLL SCM will introduce some overhead)*
   
   - In  ***Post-Build-Actions*** select ***Build-Other-Projects*** and type ***Job2***, select ***save*** and ***apply***
   
@@ -124,5 +124,38 @@ eg : 172.17.0.2:8080
 - [x]	 ***Job1*** : Pull  the Github repo automatically when some developers push repo to Github.
 
 
+# JOB 2:
+
 - [ ]	 ***Job2*** : By looking at the code or program file, Jenkins should automatically start the respective language interpreter install image container to deploy code ( eg. If code is of  PHP, then Jenkins should start the container that has PHP already installed ).
+
+### How this will work ?
+
+- I have made a python file which goes into the current workspace and checks the extension of downloaded files and then run respective container ( this file is already placed in jenkins container )
+
+Take a look at python file : launch.py 
+
+```
+import os
+
+for file in os.listdir('/root/.jenkins/workspace/Job1'):
+  ext = os.path.splitext(file0[-1].lower()
+
+  
+  if ext == '.php':
+    print('running httpd with php container')
+    os.system('docker run -it -v /root/.jenkins/workspace/job1/:/var/www/html -p 8081:8080 php')
+    break
+    
+  if ext == '.py':
+    print('running httpd with python3 container')
+    os.system('docker run -it -v /root/.jenkins/workspace/job1/:/var/www/html -p 8081:8080 python')
+    break
+    
+  if ext == '.html':
+    print('running httpd container')
+    os.system('docker run -it -v /root/.jenkins/workspace/job1/:/var/www/html -p 8081:8080 httpd')
+    break
+```
+
+
 
