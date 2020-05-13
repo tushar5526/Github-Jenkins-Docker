@@ -216,6 +216,8 @@ for file in os.listdir('/root/.jenkins/workspace/Job1'):
   
 # PHEW ! Now you can AUTOMATE your development process easily
 
+![Image description](https://github.com/tushar5526/Github-Jenkins-Docker/blob/master/images/10.png)
+
 - [x]	Create container image that has Jenkins installed  using dockerfile, when we launch this image, it should automatically starts Jenkins service in the container.
 
 - [x]	Create a job chain of job1, job2, job3 and  job4 using build pipeline plugin in Jenkins 
