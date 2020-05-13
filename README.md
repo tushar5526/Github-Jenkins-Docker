@@ -34,20 +34,18 @@ cd Github-Jenkins-Docker
 
 ```
 
-# Now we will build the image, that will run the Jenkins as soon as a container is deployed with thi s image (see Dockerfile RUN java -jar ... command)
+### Now we will build the image, that will run the Jenkins as soon as a container is deployed with this image (see Dockerfile RUN java -jar ... command)
 
 ```
 docker build -t jenkins .
 ```
 
-================================================================
 ***IMAGE here***
-================================================================
 
 
-- [x] Create container image that has Jenkins installed  using dockerfile, when we launch this image, it should automatically starts Jenkins service in the container.
+- [x] ***Create container image that has Jenkins installed  using dockerfile, when we launch this image, it should automatically starts Jenkins service in the container.****
 
-***This is done now, let's move to next step***
+### This is done now, let's move to next step
 
 
 
